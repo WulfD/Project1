@@ -28,12 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            ReadFile = new Button();
+            SuspendLayout();
+            // 
+            // ReadFile
+            // 
+            ReadFile.Location = new Point(247, 159);
+            ReadFile.Name = "ReadFile";
+            ReadFile.Size = new Size(264, 106);
+            ReadFile.TabIndex = 0;
+            ReadFile.Text = "Read File";
+            ReadFile.UseVisualStyleBackColor = true;
+            ReadFile.Click += button1_Click;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(800, 450);
+            Controls.Add(ReadFile);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Button ReadFile;
     }
 }
