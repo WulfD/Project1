@@ -9,7 +9,7 @@ await ProcessRepositoriesAsync(client);
 
 static async Task ProcessRepositoriesAsync(HttpClient client)
 {
-    var json = await client.GetStringAsync("http://localhost:5131/getfile");
+    var json = await client.GetStringAsync("http://localhost:5092/getfile");
     Console.Write(json);
 }
 
