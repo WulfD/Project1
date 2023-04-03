@@ -29,23 +29,34 @@
         private void InitializeComponent()
         {
             ReadFile = new Button();
+            richTextBox1 = new RichTextBox();
             SuspendLayout();
             // 
             // ReadFile
             // 
-            ReadFile.Location = new Point(247, 159);
+            ReadFile.Location = new Point(304, 12);
             ReadFile.Name = "ReadFile";
-            ReadFile.Size = new Size(264, 106);
+            ReadFile.Size = new Size(160, 37);
             ReadFile.TabIndex = 0;
             ReadFile.Text = "Read File";
             ReadFile.UseVisualStyleBackColor = true;
             ReadFile.Click += button1_Click;
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.Location = new Point(12, 55);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(776, 383);
+            richTextBox1.TabIndex = 1;
+            richTextBox1.Text = "";
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(richTextBox1);
             Controls.Add(ReadFile);
             Name = "Form1";
             Text = "Form1";
@@ -55,5 +66,6 @@
         #endregion
 
         private Button ReadFile;
+        private RichTextBox richTextBox1;
     }
 }

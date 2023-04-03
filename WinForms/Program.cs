@@ -19,7 +19,7 @@ namespace WinForms
         {
             using (HttpClient client = new HttpClient())
             {
-                string url = $"http://localhost:5092/getfil";
+                string url = $"http://localhost:5092/getfile";
                 HttpResponseMessage response = await client.GetAsync(url);
                 if (response.IsSuccessStatusCode)
                 {

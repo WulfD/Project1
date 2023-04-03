@@ -12,6 +12,12 @@ namespace WinForms
         {
             string data = await Program.getfile();
             Console.Write(data);
+            richTextBox1.Text = data;
         }
-    }    
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+    }
 }
