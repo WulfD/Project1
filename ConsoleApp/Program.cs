@@ -22,7 +22,7 @@ while (true)
     {
         case "getfile":
             Console.WriteLine("Befehl wird ausgeführt");
-            //await ProcessRepositoriesAsync(client);
+            await ProcessRepositoriesAsync(client);
             break;
         default:
             Console.WriteLine("Unbekannter befehl");
