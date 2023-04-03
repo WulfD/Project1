@@ -1,4 +1,3 @@
-
 namespace WinForms
 {
 
@@ -9,9 +8,10 @@ namespace WinForms
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {                   
-            
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            string data = await Program.getfile();
+            Console.Write(data);
         }
-    }
+    }    
 }

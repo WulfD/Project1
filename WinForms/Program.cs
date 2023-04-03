@@ -1,3 +1,5 @@
+using System.Text.Json.Nodes;
+
 namespace WinForms
 {
     internal static class Program
@@ -12,6 +14,25 @@ namespace WinForms
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
+        }
+        public static async Task<string> getfile()
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                string url = $"http://localhost:5092/getfil";
+                HttpResponseMessage response = await client.GetAsync(url);
+                if (response.IsSuccessStatusCode)
+                {
+                    string json = await response.Content.ReadAsStringAsync();
+                    return json;
+                }
+                else
+                {
+                    int error = (int)response.StatusCode;
+                    string errorcode = $"{error} not found";
+                    return errorcode;
+                }
+            }
         }
     }
 }
