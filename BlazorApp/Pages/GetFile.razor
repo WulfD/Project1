@@ -1,9 +1,14 @@
-﻿@page "/GetFile"
+﻿@page "/getfile"
 
 <PageTitle>GetFile</PageTitle>
 
 <MatButton Raised="true">Get Data</MatButton>
 
 @code {
+    string ButtonState = "";
 
+    void Click(MouseEventArgs e)
+    {
+        ButtonState = "Clicked";
+    }
 }
