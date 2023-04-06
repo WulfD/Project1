@@ -1,36 +1,41 @@
 ﻿@page "/getfile"
 @inject NavigationManager Navigation
+@using System.Net.Http
+@using System.Net.Http.Json
+@using System.Threading.Tasks
+@inject HttpClient Http
 
 <PageTitle>GetFile</PageTitle>
 
 <style>
 
-    .flexbox
-    {
+    .flexbox {
         display: flex;
         justify-content: space-evenly;
     }
 
-    .link
-    {
+    .link {
         justify-content: left;
     }
 
-    .textfield
-    {
+    .container {
         display: flex;
         justify-content: space-evenly;
-        min-width: auto;
-        max-width: auto;
-        min-inline-size: auto;
-        max-height: auto;
+        min-width: 100%;
+        min-inline-size: 500px;
+    }
+
+    .textfield {
+        width: 100%;
+        min-height: auto;
     }
 
 </style>
 
+
 <div class="flexbox">
 
-    <MatButton Raised="true"> Get Data</MatButton>
+    <MatButton OnClick="@Click">Get Data</MatButton>
 
 </div>
 
@@ -40,20 +45,20 @@
 
 </div>
 
-<div class="textfield">
+<div class="container">
 
-    <p>
-        <MatTextField @bind-Value="@data" Label=""></MatTextField>
-    </p>
-    
+    <MatTextField class="textfield" TextArea=true @bind-Value="@data" Label=""></MatTextField>
+
 </div>
 
 @code
 {
-    string data = "";
+    string data = String.Empty;
 
-    void Click(MouseEventArgs e)
+    async void Click(MouseEventArgs e)
     {
-        
+        var response = await Http.GetFromJsonAsync<String>("/getfile");
+        Console.WriteLine(response);
+        //using var response = await Http.GetAsync("http://localhost:5092/getfile");
     }
 }
