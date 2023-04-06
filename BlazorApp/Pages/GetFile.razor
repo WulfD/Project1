@@ -1,14 +1,59 @@
 ﻿@page "/getfile"
+@inject NavigationManager Navigation
 
 <PageTitle>GetFile</PageTitle>
 
-<MatButton Raised="true">Get Data</MatButton>
+<style>
 
-@code {
-    string ButtonState = "";
+    .flexbox
+    {
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .link
+    {
+        justify-content: left;
+    }
+
+    .textfield
+    {
+        display: flex;
+        justify-content: space-evenly;
+        min-width: auto;
+        max-width: auto;
+        min-inline-size: auto;
+        max-height: auto;
+    }
+
+</style>
+
+<div class="flexbox">
+
+    <MatButton Raised="true"> Get Data</MatButton>
+
+</div>
+
+<div class="link">
+
+    <MatButtonLink Href="/" Raised="true">Back</MatButtonLink>
+
+</div>
+
+<div class="textfield">
+
+    <p>
+        <MatTextField @bind-Value="@data" Label=""></MatTextField>
+    </p>
+    
+</div>
+
+@code
+{
+    string data = "";
 
     void Click(MouseEventArgs e)
     {
-        ButtonState = "Clicked";
+        
     }
 }
