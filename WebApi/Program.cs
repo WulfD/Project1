@@ -7,7 +7,21 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+
+// CORS start
+
+builder.Services.AddCors();
+
 var app = builder.Build();
+
+app.UseCors(x => x
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .SetIsOriginAllowed(origin => true) // allow any origin
+                .AllowCredentials()); // allow credentials
+
+// CORS end
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -23,7 +37,8 @@ app.MapGet("getfile", () =>
     var data = "";
     using (var sr = new StreamReader("Data/data.csv"))
         data += sr.ReadToEnd();
-    return data;
+    var json = data;
+    return json;
 });
 
 app.UseAuthorization();
